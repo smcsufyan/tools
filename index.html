@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,43 +8,46 @@
 </head>
 <body>
 
-    <div class="tool-switcher">
-        <button id="showMetronome" class="active">🎧 Metronome</button>
-        <button id="showTuner">🎶 Tuner (ശ്രുതി)</button>
-    </div>
-
-    <div class="tool-section" id="metronomeSection">
-        <h1>Metronome Tool</h1>
+    <div class="metronome-container">
         
-        <div class="bpm-display">
-            <span id="bpmValue">120</span> <span class="unit">BPM</span>
+        <div class="tool-switcher">
+            <button id="showMetronome" class="active">🎧 Metronome</button>
+            <button id="showTuner">🎶 Tuner (Pitch)</button>
         </div>
 
-        <input type="range" id="bpmSlider" min="40" max="240" value="120">
+        <div class="tool-section" id="metronomeSection">
+            <h1>Metronome Tool</h1>
+            
+            <div class="bpm-display">
+                <span id="bpmValue">120</span> <span class="unit">BPM</span>
+            </div>
 
-        <div class="controls">
-            <button id="bpmDown">-</button>
-            <button id="bpmUp">+</button>
+            <input type="range" id="bpmSlider" min="40" max="240" value="120">
+
+            <div class="controls">
+                <button id="bpmDown">-</button>
+                <button id="bpmUp">+</button>
+            </div>
+
+            <button id="startStopBtn" class="start">START</button>
+            
+            <div id="beatIndicator" class="beat-light"></div>
         </div>
 
-        <button id="startStopBtn" class="start">START</button>
-        
-        <div id="beatIndicator" class="beat-light"></div>
-    </div>
-
-    <div class="tool-section hidden" id="tunerSection">
-        <h1>Online Tuner (ശ്രുതി)</h1>
-        <p class="tuner-note-info">മൈക്രോഫോൺ ഓൺ ചെയ്ത് നിങ്ങളുടെ സംഗീതോപകരണം വായിക്കുക.</p>
-        
-        <div id="tunerDisplay" class="tuner-display">
-            <span id="noteName">--</span>
+        <div class="tool-section hidden" id="tunerSection">
+            <h1>Online Tuner (Pitch)</h1>
+            <p class="tuner-note-info">Grant microphone access and play your instrument (Notes C to B).</p>
+            
+            <div id="tunerDisplay" class="tuner-display">
+                <span id="noteName">--</span>
+            </div>
+            
+            <div id="detuneIndicator" class="detune-indicator-container">
+                <div id="detuneBar" class="detune-bar"></div>
+            </div>
+            
+            <p id="tunerStatus">Awaiting microphone permission...</p>
         </div>
-        
-        <div id="detuneIndicator" class="detune-indicator-container">
-            <div id="detuneBar" class="detune-bar"></div>
-        </div>
-        
-        <p id="tunerStatus">മൈക്രോഫോൺ അനുമതിക്കായി കാത്തിരിക്കുന്നു...</p>
     </div>
 
     <script src="script.js"></script>
