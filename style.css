@@ -1,7 +1,7 @@
 /* General Setup */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f7f7f7; /* Very light background */
+    background-color: #f7f7f7;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@ body {
 }
 
 .metronome-container {
-    background-color: #ffffff; /* White card */
+    background-color: #ffffff;
     padding: 30px 40px;
     border-radius: 15px;
     text-align: center;
@@ -22,7 +22,7 @@ body {
     max-width: 400px;
 }
 
-/* Tool Switching Buttons (New Section) */
+/* Tool Switching Buttons */
 .tool-switcher {
     margin-bottom: 25px;
     display: flex;
@@ -46,13 +46,13 @@ body {
 }
 
 .tool-switcher button.active {
-    background-color: #007bff; /* Blue for selection */
+    background-color: #007bff; /* Primary Blue */
     color: white;
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
 h1 {
-    color: #007bff; /* Primary Color: Blue */
+    color: #007bff; 
     margin-bottom: 25px;
     font-size: 1.8em;
     font-weight: 700;
@@ -125,17 +125,9 @@ h1 {
     color: white;
 }
 
-#startStopBtn.start:hover {
-    background-color: #1e7e34;
-}
-
 #startStopBtn.stop {
     background-color: #dc3545; /* Red */
     color: white;
-}
-
-#startStopBtn.stop:hover {
-    background-color: #c82333;
 }
 
 .beat-light {
@@ -154,7 +146,7 @@ h1 {
     transform: scale(1.1);
 }
 
-/* --- Tuner Specific Styles (Shruthi) --- */
+/* Tuner Specific Styles */
 .tool-section {
     width: 100%;
 }
@@ -196,7 +188,7 @@ h1 {
 }
 
 .detune-bar {
-    width: 8px; /* Indicator line */
+    width: 8px;
     height: 100%;
     background-color: #333;
     position: absolute;
