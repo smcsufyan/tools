@@ -1,7 +1,8 @@
+/* General Setup */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f0f0; /* Light background for clean look */
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,96 +11,117 @@ body {
 }
 
 .metronome-container {
-    background-color: #2c2c2c;
-    padding: 40px;
-    border-radius: 12px;
+    background-color: #ffffff; /* White card */
+    padding: 30px 40px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 400px;
+    max-width: 350px;
 }
 
 h1 {
-    color: #f0c300; /* Sarigama Yellow */
-    margin-bottom: 25px;
-    font-size: 1.5em;
+    color: #d8a000; /* Sarigama/Golden Yellow */
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    font-weight: 600;
 }
 
+/* Tempo Display */
 .bpm-display {
-    font-size: 5em;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 4em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a1a;
 }
 
 .unit {
     font-size: 0.3em;
     vertical-align: top;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
-/* Range Slider Styling */
+/* Slider and Controls Alignment */
 #bpmSlider {
     width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+/* Add/Subtract Buttons */
+.controls {
+    display: flex;
+    justify-content: center;
     margin-bottom: 30px;
 }
 
-/* Controls (Buttons) */
 .controls button {
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border-radius: 8px;
-    font-size: 1.5em;
+    background-color: #e0e0e0;
+    color: #333;
+    border: 1px solid #ccc;
+    width: 50px;
+    height: 50px;
+    margin: 0 15px;
+    border-radius: 50%;
+    font-size: 2em;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s;
+    line-height: 0; /* Center the text */
 }
 
 .controls button:hover {
-    background-color: #777;
+    background-color: #d0d0d0;
 }
 
+/* Start/Stop Button */
 #startStopBtn {
-    width: 80%;
-    padding: 15px;
+    width: 100%;
+    padding: 18px;
     border: none;
-    border-radius: 10px;
-    font-size: 1.2em;
+    border-radius: 8px;
+    font-size: 1.3em;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 30px;
     transition: background-color 0.3s;
+    letter-spacing: 1px;
 }
 
 #startStopBtn.start {
-    background-color: #37d67a; /* Green */
-    color: #1a1a1a;
+    background-color: #38b000; /* Vibrant Green */
+    color: white;
 }
 
 #startStopBtn.start:hover {
-    background-color: #27c166;
+    background-color: #2a8b00;
 }
 
 #startStopBtn.stop {
-    background-color: #ff5555; /* Red */
+    background-color: #ff3838; /* Vibrant Red */
     color: white;
 }
 
 #startStopBtn.stop:hover {
-    background-color: #e54444;
+    background-color: #cc2c2c;
 }
 
 /* Beat Indicator */
 .beat-light {
-    width: 20px;
-    height: 20px;
-    background-color: #555;
+    width: 25px;
+    height: 25px;
+    background-color: #ccc;
     border-radius: 50%;
-    margin: 20px auto 0;
-    transition: background-color 0.1s;
+    margin: 30px auto 0;
+    transition: background-color 0.1s, transform 0.1s;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .beat-light.active {
-    background-color: #f0c300; /* Yellow flash */
+    background-color: #d8a000; /* Yellow flash */
+    box-shadow: 0 0 15px #d8a000;
+    transform: scale(1.1);
 }
