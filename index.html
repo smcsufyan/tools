@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Metronome - Sarigama Music Corner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="metronome-container">
+        <h1>Sarigama Metronome Tool</h1>
+        
+        <div class="bpm-display">
+            <span id="bpmValue">120</span> <span class="unit">BPM</span>
+        </div>
+
+        <input type="range" id="bpmSlider" min="40" max="240" value="120">
+
+        <div class="controls">
+            <button id="bpmDown">-</button>
+            <button id="bpmUp">+</button>
+        </div>
+
+        <button id="startStopBtn" class="start">START</button>
+        
+        <div id="beatIndicator" class="beat-light"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
