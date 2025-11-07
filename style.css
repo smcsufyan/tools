@@ -152,7 +152,7 @@ h1 {
 }
 
 .hidden {
-    display: none;
+    display: none !important; /* IMPORTANT for hiding */
 }
 
 .tuner-note-info {
