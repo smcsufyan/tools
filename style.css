@@ -1,77 +1,243 @@
-/* --- Tool Switching --- */
+/* General Setup */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f7f7f7; /* Very light background */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.metronome-container {
+    background-color: #ffffff; /* White card */
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Tool Switching Buttons (New Section) */
 .tool-switcher {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
+    background: #e9e9e9;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .tool-switcher button {
     padding: 10px 20px;
-    margin: 0 5px;
-    border: 2px solid #ccc;
+    margin: 0;
+    border: none;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: transparent;
     color: #555;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.3s, color 0.3s;
+    flex-grow: 1;
 }
 
 .tool-switcher button.active {
-    background-color: #d8a000; /* Sarigama Yellow */
+    background-color: #007bff; /* Blue for selection */
     color: white;
-    border-color: #d8a000;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
+h1 {
+    color: #007bff; /* Primary Color: Blue */
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+/* Metronome Styles */
+.bpm-display {
+    font-size: 4.5em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.unit {
+    font-size: 0.25em;
+    vertical-align: top;
+    opacity: 0.6;
+}
+
+#bpmSlider {
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.controls button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    width: 55px;
+    height: 55px;
+    margin: 0 15px;
+    border-radius: 50%;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    line-height: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.controls button:hover {
+    background-color: #dcdcdc;
+}
+
+#startStopBtn {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    letter-spacing: 1px;
+}
+
+#startStopBtn.start {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+#startStopBtn.start:hover {
+    background-color: #1e7e34;
+}
+
+#startStopBtn.stop {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+
+#startStopBtn.stop:hover {
+    background-color: #c82333;
+}
+
+.beat-light {
+    width: 25px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 30px auto 0;
+    transition: background-color 0.1s, transform 0.1s;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.beat-light.active {
+    background-color: #007bff; /* Blue flash */
+    box-shadow: 0 0 15px #007bff;
+    transform: scale(1.1);
+}
+
+/* --- Tuner Specific Styles (Shruthi) --- */
 .tool-section {
     width: 100%;
 }
 
 .hidden {
-    display: none !important;
+    display: none;
 }
 
-/* --- Tuner Specific Styles --- */
 .tuner-note-info {
     font-style: italic;
-    color: #666;
+    color: #6c757d;
     margin-bottom: 30px;
 }
 
 .tuner-display {
     font-size: 8em;
     font-weight: 800;
-    color: #d8a000; /* Yellow */
+    color: #007bff;
     min-height: 1.2em;
+    line-height: 1;
 }
 
 #noteName {
     display: inline-block;
-    min-width: 150px; /* To prevent jumping */
+    min-width: 120px; 
 }
 
 .detune-indicator-container {
-    width: 80%;
-    height: 20px;
-    background-color: #eee;
-    border-radius: 10px;
-    margin: 20px auto 10px;
-    overflow: hidden;
+    width: 90%;
+    height: 25px;
+    background-color: #e9ecef;
+    border-radius: 12px;
+    margin: 25px auto 10px;
     position: relative;
-    border: 1px solid #ccc;
+    border: 1px solid #ced4da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .detune-bar {
-    position: absolute;
-    width: 6px; /* Indicator line */
+    width: 8px; /* Indicator line */
     height: 100%;
-    background-color: #1a1a1a;
+    background-color: #333;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
     transition: left 0.1s;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.detune-indicator-container::before, 
+.detune-indicator-container::after {
+    content: '♭'; /* Flat symbol */
+    position: absolute;
+    font-size: 1.5em;
+    color: #dc3545;
+    left: 5%;
+}
+
+.detune-indicator-container::after {
+    content: '♯'; /* Sharp symbol */
+    right: 5%;
+    left: auto;
+    color: #ffc107;
+}
+
+/* Mark the exact center */
+.detune-indicator-container::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: #28a745; /* Green for perfect tune */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
 #tunerStatus {
     font-size: 0.9em;
-    color: #888;
+    color: #6c757d;
+    margin-top: 15px;
 }
